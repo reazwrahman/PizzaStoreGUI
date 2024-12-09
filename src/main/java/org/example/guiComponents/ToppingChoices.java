@@ -1,0 +1,40 @@
+package org.example.guiComponents;
+
+import javax.swing.*;
+
+public class ToppingChoices extends AbstractGUIComponent implements GUIComponentIF{
+
+    // check boxes
+    private JCheckBox pepperoniBox;
+    private JCheckBox sausageBox;
+    private JCheckBox cheeseBox;
+    private JCheckBox pepperBox;
+    private JCheckBox onionBox;
+    private JCheckBox mushroomBox;
+    private JCheckBox oliveBox;
+    private JCheckBox anchovyBox;
+
+    @Override
+    public void render(){
+        panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createTitledBorder("Select Toppings"));
+
+        pepperoniBox = new JCheckBox("Pepperoni", false);
+        panel.add(pepperoniBox);
+        sausageBox = new JCheckBox("Sausage", false);
+        panel.add(sausageBox);
+        cheeseBox = new JCheckBox("Extra Cheese", false);
+        panel.add(cheeseBox);
+        pepperBox = new JCheckBox("Bell Peppers", false);
+        panel.add(pepperBox);
+        onionBox = new JCheckBox("Onions", false);
+        panel.add(onionBox);
+        mushroomBox = new JCheckBox("Mushrooms", false);
+        panel.add(mushroomBox);
+        oliveBox = new JCheckBox("Olives", false);
+        panel.add(oliveBox);
+        anchovyBox = new JCheckBox("Anchovies", false);
+        panel.add(anchovyBox);
+    }
+}
