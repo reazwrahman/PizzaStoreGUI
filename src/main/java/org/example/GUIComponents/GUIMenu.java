@@ -1,4 +1,4 @@
-package org.example.guiComponents;
+package org.example.GUIComponents;
 
 import java.awt.*;
 import java.awt.event.*;
