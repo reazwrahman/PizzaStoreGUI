@@ -69,12 +69,13 @@ public class GUIMenu implements GUIComponentIF
         menuItem.setAccelerator(
                 KeyStroke.getKeyStroke(KeyEvent.VK_X,
                         Event.CTRL_MASK));
+
         menuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
 
         for (JMenuItem item: menuItems) {
             item.addActionListener(new newListener());
