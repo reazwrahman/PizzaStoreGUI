@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class GUIMenu
+public class GUIMenu implements GUIComponentIF
 {
     private JFrame frame;
 
@@ -21,6 +21,12 @@ public class GUIMenu
     }
 
 
+    @Override
+    public JPanel getPanel(){
+        return null; // placeholder implementation, menu doesn't need panel
+    }
+
+    @Override
     public void render()
     {
         menuBar = new JMenuBar(); // first thing we need to add: the bar to hold "menu" objects

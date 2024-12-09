@@ -1,6 +1,7 @@
 package org.example.GUIComponents;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF{
 
@@ -16,6 +17,8 @@ public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF
         panel = new JPanel();
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createTitledBorder("Choose a Crust"));
+        panel.setPreferredSize(new Dimension(250,0));
+
         crustButtonGroup = new ButtonGroup();
         regularCrustButton = new JRadioButton("Regular Crust",true);
         crustButtonGroup.add(regularCrustButton);

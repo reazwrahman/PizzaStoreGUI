@@ -22,6 +22,7 @@ public class GUIApp {
         componentMapper.put(BorderLayout.EAST, new SideOrders());
         componentMapper.put(BorderLayout.WEST, new CrustChoices());
         componentMapper.put(BorderLayout.CENTER, new ToppingChoices());
+        componentMapper.put(BorderLayout.SOUTH, new DeliveryAddress());
     }
 
     public void start()
@@ -34,7 +35,7 @@ public class GUIApp {
         renderMenu();
         renderRegions();
 
-        frame.setSize(600, 600);
+        frame.setSize(800, 800);
         frame.setVisible(true);
     }
 
@@ -46,7 +47,6 @@ public class GUIApp {
     private void renderRegions(){
         for (String region: componentMapper.keySet()) {
             GUIComponentIF component = componentMapper.get(region);
-            component.render();
             contentPane.add(component.getPanel(), region);
         }
     }

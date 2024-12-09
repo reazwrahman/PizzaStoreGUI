@@ -5,8 +5,8 @@ import javax.swing.*;
 public class ToppingChoices extends AbstractGUIComponent implements GUIComponentIF{
 
     // check boxes
-    private JCheckBox pepperoniBox;
-    private JCheckBox sausageBox;
+    private JCheckBox beefBox;
+    private JCheckBox chickenBox;
     private JCheckBox cheeseBox;
     private JCheckBox pepperBox;
     private JCheckBox onionBox;
@@ -20,10 +20,10 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createTitledBorder("Select Toppings"));
 
-        pepperoniBox = new JCheckBox("Pepperoni", false);
-        panel.add(pepperoniBox);
-        sausageBox = new JCheckBox("Sausage", false);
-        panel.add(sausageBox);
+        beefBox = new JCheckBox("Beef", false);
+        panel.add(beefBox);
+        chickenBox = new JCheckBox("Chicken", false);
+        panel.add(chickenBox);
         cheeseBox = new JCheckBox("Extra Cheese", false);
         panel.add(cheeseBox);
         pepperBox = new JCheckBox("Bell Peppers", false);
