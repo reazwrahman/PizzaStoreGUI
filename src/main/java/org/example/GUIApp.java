@@ -46,7 +46,7 @@ public class GUIApp {
 
     private void renderRegions(){
         for (String region: componentMapper.keySet()) {
-            GUIComponentIF component = componentMapper.get(region);
+            var component = componentMapper.get(region);
             contentPane.add(component.getPanel(), region);
         }
     }
