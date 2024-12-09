@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-        <directory>${project.basedir}/output</directory>
+        <directory>${project.basedir}/target</directory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
