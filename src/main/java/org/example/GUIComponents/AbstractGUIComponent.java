@@ -3,13 +3,13 @@ package org.example.GUIComponents;
 import javax.swing.*;
 
 public abstract class AbstractGUIComponent implements GUIComponentIF {
-    protected JPanel panel = null;
+    protected JPanel m_panel = null;
 
     @Override
     public JPanel getPanel() {
-        if (panel == null) {
+        if (m_panel == null) {
             render();
         }
-        return panel;
+        return m_panel;
     }
 }

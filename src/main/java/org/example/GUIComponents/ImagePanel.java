@@ -8,9 +8,9 @@ public class ImagePanel extends AbstractGUIComponent implements GUIComponentIF{
 
     @Override
     public void render(){
-        panel = new JPanel();
+        m_panel = new JPanel();
         ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(IMAGE_REF));
         JLabel imgLabel = new JLabel(imageIcon, JLabel.CENTER);
-        panel.add(imgLabel);
+        m_panel.add(imgLabel);
     }
 }

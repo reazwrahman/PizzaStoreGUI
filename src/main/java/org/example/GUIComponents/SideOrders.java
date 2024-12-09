@@ -10,10 +10,10 @@ public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
 
     @Override
     public void render(){
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-        panel.setBorder(BorderFactory.createTitledBorder("Sides (Enter Quantity)"));
-        panel.setPreferredSize(new Dimension(250,0));
+        m_panel = new JPanel();
+        m_panel.setLayout(new BoxLayout(m_panel,BoxLayout.Y_AXIS));
+        m_panel.setBorder(BorderFactory.createTitledBorder("Sides (Enter Quantity)"));
+        m_panel.setPreferredSize(new Dimension(250,0));
 
         makeSelection(" Bread Sticks");
         makeSelection(" Buffalo Wings");
@@ -27,6 +27,6 @@ public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
         smallPanel.add(textField);
         smallPanel.add(new JLabel(label));
         smallPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel.add(smallPanel);
+        m_panel.add(smallPanel);
     }
 }

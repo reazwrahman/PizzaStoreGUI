@@ -27,7 +27,7 @@ public class GUIApp {
 
     public void start()
     {
-        frame = new JFrame("GUI Menus");
+        frame = new JFrame("Customize Your Pizza");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = frame.getContentPane();
 

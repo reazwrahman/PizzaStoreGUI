@@ -16,25 +16,25 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
 
     @Override
     public void render(){
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
-        panel.setBorder(BorderFactory.createTitledBorder("Select Toppings"));
+        m_panel = new JPanel();
+        m_panel.setLayout(new BoxLayout(m_panel,BoxLayout.Y_AXIS));
+        m_panel.setBorder(BorderFactory.createTitledBorder("Select Toppings"));
 
         beefBox = new JCheckBox("Beef", false);
-        panel.add(beefBox);
+        m_panel.add(beefBox);
         chickenBox = new JCheckBox("Chicken", false);
-        panel.add(chickenBox);
+        m_panel.add(chickenBox);
         cheeseBox = new JCheckBox("Extra Cheese", false);
-        panel.add(cheeseBox);
+        m_panel.add(cheeseBox);
         pepperBox = new JCheckBox("Bell Peppers", false);
-        panel.add(pepperBox);
+        m_panel.add(pepperBox);
         onionBox = new JCheckBox("Onions", false);
-        panel.add(onionBox);
+        m_panel.add(onionBox);
         mushroomBox = new JCheckBox("Mushrooms", false);
-        panel.add(mushroomBox);
+        m_panel.add(mushroomBox);
         oliveBox = new JCheckBox("Olives", false);
-        panel.add(oliveBox);
+        m_panel.add(oliveBox);
         anchovyBox = new JCheckBox("Anchovies", false);
-        panel.add(anchovyBox);
+        m_panel.add(anchovyBox);
     }
 }

@@ -13,9 +13,9 @@ public class DeliveryAddress extends AbstractGUIComponent implements GUIComponen
 
     @Override
     public void render(){
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
-        panel.setBorder(BorderFactory.createTitledBorder("Deliver To:"));
+        m_panel = new JPanel();
+        m_panel.setLayout(new BoxLayout(m_panel,BoxLayout.X_AXIS));
+        m_panel.setBorder(BorderFactory.createTitledBorder("Deliver To:"));
 
         addStaticLabels();
         addTextInputs();
@@ -36,7 +36,7 @@ public class DeliveryAddress extends AbstractGUIComponent implements GUIComponen
 
         smallPanel.add(Box.createRigidArea(new Dimension(5,5)));
         smallPanel.add(new JLabel("Zipcode:"));
-        panel.add(smallPanel);
+        m_panel.add(smallPanel);
     }
 
     private void addTextInputs(){
@@ -52,6 +52,6 @@ public class DeliveryAddress extends AbstractGUIComponent implements GUIComponen
         smallPanel.add(addressText);
         smallPanel.add(addressDetailsText);
         smallPanel.add(zipcode);
-        panel.add(smallPanel);
+        m_panel.add(smallPanel);
     }
 }
