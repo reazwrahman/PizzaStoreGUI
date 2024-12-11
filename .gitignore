@@ -37,6 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### output directory ### 
-output/
+### misc ### 
 PizzaOrder.txt
