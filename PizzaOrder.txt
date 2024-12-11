@@ -1,0 +1,18 @@
+Pizza Order
+===========
+Crust:
+     Regular
+Toppings: 
+     Chicken
+     Extra Cheese
+     Peppers
+     Mushrooms
+Sides: 
+     6 Buffalo Wings
+     2 Bread Sticks
+Deliver To:
+     Sherlock Holmes
+     221B Baker Street
+     London, England: NW1 6XE
+
+***END OF ORDER ***

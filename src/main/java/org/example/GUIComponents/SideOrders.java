@@ -43,6 +43,19 @@ public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
     }
 
     @Override
+    public String validateInput(){
+        String errorMessage = "";
+        try {
+            for (String label: m_textFields.keySet()) {
+                Integer qty = Integer.parseInt(m_textFields.get(label).getText()); }
+        } catch (NumberFormatException nfe) {
+            errorMessage = "Side order entries must be numeric,\n" +
+                    "and must be whole numbers";
+        }
+        return errorMessage;
+    }
+
+    @Override
     public String getOrder(){
         String order = "Sides: \n";
         var qtyMapper = getQty();

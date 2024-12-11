@@ -17,8 +17,8 @@ public abstract class AbstractGUIComponent implements GUIComponentIF {
     public void reset(){}
 
     @Override
-    public boolean validateInput(){
-        return true;
+    public String validateInput(){
+        return "";
     };
 
     @Override

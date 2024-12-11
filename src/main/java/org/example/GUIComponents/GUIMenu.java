@@ -1,5 +1,7 @@
 package org.example.GUIComponents;
 
+import org.example.Uitility.FileHandler;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import javax.swing.*;
 public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
 {
     private JFrame frame;
+    private FileHandler fileHandler;
 
     // menu related
     JMenuBar menuBar;
@@ -21,6 +24,7 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
     public GUIMenu(JFrame guiFrame, Map<String, GUIComponentIF> componentsMapped){
         frame = guiFrame;
         componentMapper = componentsMapped;
+        fileHandler = new FileHandler();
     }
 
     @Override
@@ -37,6 +41,23 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
     }
 
     @Override
+    public String validateInput(){
+        for (String region: componentMapper.keySet()) {
+            GUIComponentIF component = componentMapper.get(region);
+            String errorMessage = component.validateInput();
+
+            if (!errorMessage.isEmpty()) {
+                JOptionPane.showMessageDialog(frame,
+                        errorMessage,
+                        "Order Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return errorMessage;
+            }
+        }
+        return "";
+    }
+
+    @Override
     public String getOrder(){
         String order = "Pizza Order\n" +
                 "===========\n";
@@ -44,6 +65,9 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
         order += componentMapper.get(BorderLayout.WEST).getOrder(); // crust
         order += componentMapper.get(BorderLayout.CENTER).getOrder(); // toppings
         order += componentMapper.get(BorderLayout.EAST).getOrder(); // sides
+        order += componentMapper.get(BorderLayout.SOUTH).getOrder(); // delivery address
+
+        order += "\n***END OF ORDER ***\n";
         return order;
     }
 
@@ -126,10 +150,16 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(frame,
-                    getOrder(),
-                    "Order Saved",
-                    JOptionPane.INFORMATION_MESSAGE);
+            String errorMessage = validateInput();
+            if (errorMessage.isEmpty()) { // valid inputs
+                String order = getOrder();
+                JOptionPane.showMessageDialog(frame,
+                        order,
+                        "Order Saved",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                fileHandler.writeToFile("PizzaOrder.txt", order);
+            }
         }
     }
 }

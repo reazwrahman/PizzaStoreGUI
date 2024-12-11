@@ -66,4 +66,28 @@ public class DeliveryAddress extends AbstractGUIComponent implements GUIComponen
             textField.setText("");
         }
     }
+
+    @Override
+    public String validateInput(){
+        String errorMessage = "";
+
+        if (nameText.getText().isEmpty() ||
+                addressText.getText().isEmpty() ||
+                addressDetailsText.getText().isEmpty() ||
+                zipcode.getText().isEmpty()) {
+            errorMessage = "Error in address: Address fields may not be empty";
+        }
+        return errorMessage;
+    }
+
+    @Override
+    public String getOrder(){
+        String order = "Deliver To:\n";
+        order += "     " + nameText.getText() + "\n";
+        order += "     " + addressText.getText() + "\n";
+        order += "     " + addressDetailsText.getText() + ": "
+                + zipcode.getText() +"\n";
+
+        return order;
+    }
 }
