@@ -14,15 +14,17 @@ public abstract class AbstractGUIComponent implements GUIComponentIF {
     }
 
     @Override
-    public void reset(){}
+    public void reset() {
+    }
 
     @Override
-    public String validateInput(){
+    public String validateInput() {
         return "";
-    };
+    }
 
     @Override
     public String getOrder() {
         return "";
-    };
+    }
+
 }

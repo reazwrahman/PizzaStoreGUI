@@ -9,15 +9,13 @@ import java.util.Map;
 
 public class GUIApp {
 
+    // custom GUI components
+    GUIMenu menuComponent;
+    Map<String, GUIComponentIF> componentMapper = new HashMap<>();
     private JFrame frame;
     private Container contentPane;
 
-    // custom GUI components
-    GUIMenu menuComponent;
-
-    Map<String, GUIComponentIF> componentMapper = new HashMap<>();
-
-    public GUIApp(){
+    public GUIApp() {
         componentMapper.put(BorderLayout.NORTH, new ImagePanel());
         componentMapper.put(BorderLayout.EAST, new SideOrders());
         componentMapper.put(BorderLayout.WEST, new CrustChoices());
@@ -25,8 +23,7 @@ public class GUIApp {
         componentMapper.put(BorderLayout.SOUTH, new DeliveryAddress());
     }
 
-    public void start()
-    {
+    public void start() {
         frame = new JFrame("Customize Your Pizza");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contentPane = frame.getContentPane();
@@ -39,13 +36,13 @@ public class GUIApp {
         frame.setVisible(true);
     }
 
-    private void renderMenu(){
+    private void renderMenu() {
         menuComponent = new GUIMenu(frame, componentMapper);
         menuComponent.render();
     }
 
-    private void renderRegions(){
-        for (String region: componentMapper.keySet()) {
+    private void renderRegions() {
+        for (String region : componentMapper.keySet()) {
             var component = componentMapper.get(region);
             contentPane.add(component.getPanel(), region);
         }

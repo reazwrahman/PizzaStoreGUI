@@ -1,9 +1,8 @@
 package org.example.GUIComponents;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
-public class ToppingChoices extends AbstractGUIComponent implements GUIComponentIF{
+public class ToppingChoices extends AbstractGUIComponent implements GUIComponentIF {
 
     // check boxes
     private JCheckBox beefBox;
@@ -16,9 +15,9 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
     private JCheckBox anchovyBox;
 
     @Override
-    public void render(){
+    public void render() {
         m_panel = new JPanel();
-        m_panel.setLayout(new BoxLayout(m_panel,BoxLayout.Y_AXIS));
+        m_panel.setLayout(new BoxLayout(m_panel, BoxLayout.Y_AXIS));
         m_panel.setBorder(BorderFactory.createTitledBorder("Select Toppings"));
 
         beefBox = new JCheckBox("Beef", false);
@@ -41,17 +40,17 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
     }
 
     @Override
-    public void reset(){
-        for (java.awt.Component component: m_panel.getComponents()) {
+    public void reset() {
+        for (java.awt.Component component : m_panel.getComponents()) {
             JCheckBox checkBox = (JCheckBox) component; // typecast to checkbox
             checkBox.setSelected(false);
         }
     }
 
     @Override
-    public String getOrder(){
+    public String getOrder() {
         String order = "Toppings: \n";
-        for (java.awt.Component component: m_panel.getComponents()) {
+        for (java.awt.Component component : m_panel.getComponents()) {
             JCheckBox box = (JCheckBox) component;
             if (box.isSelected()) {
                 order += "     " + box.getText() + "\n";

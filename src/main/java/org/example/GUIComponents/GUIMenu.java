@@ -2,47 +2,45 @@ package org.example.GUIComponents;
 
 import org.example.Uitility.FileHandler;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Map;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.util.Map;
 
-public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
-{
-    private JFrame frame;
-    private FileHandler fileHandler;
-
+public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF {
     // menu related
     JMenuBar menuBar;
     JMenu orderMenu;
     JMenu helpMenu;
     JMenuItem menuItem;
-
     Map<String, GUIComponentIF> componentMapper;
+    private final JFrame frame;
+    private final FileHandler fileHandler;
 
-    public GUIMenu(JFrame guiFrame, Map<String, GUIComponentIF> componentsMapped){
+    public GUIMenu(JFrame guiFrame, Map<String, GUIComponentIF> componentsMapped) {
         frame = guiFrame;
         componentMapper = componentsMapped;
         fileHandler = new FileHandler();
     }
 
     @Override
-    public JPanel getPanel(){
+    public JPanel getPanel() {
         return null; // placeholder implementation, menu doesn't need panel
     }
 
     @Override
-    public void reset(){
-        for (String region: componentMapper.keySet()) {
+    public void reset() {
+        for (String region : componentMapper.keySet()) {
             GUIComponentIF component = componentMapper.get(region);
             component.reset();
         }
     }
 
     @Override
-    public String validateInput(){
-        for (String region: componentMapper.keySet()) {
+    public String validateInput() {
+        for (String region : componentMapper.keySet()) {
             GUIComponentIF component = componentMapper.get(region);
             String errorMessage = component.validateInput();
 
@@ -58,7 +56,7 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
     }
 
     @Override
-    public String getOrder(){
+    public String getOrder() {
         String order = "Pizza Order\n" +
                 "===========\n";
 
@@ -72,8 +70,7 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
     }
 
     @Override
-    public void render()
-    {
+    public void render() {
         menuBar = new JMenuBar(); // first thing we need to add: the bar to hold "menu" objects
         frame.setJMenuBar(menuBar); // add the bar to the frame
 
@@ -88,7 +85,7 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
         addMenuItems();
     }
 
-    private void addMenuItems(){
+    private void addMenuItems() {
         menuItem = new JMenuItem("New Order");
         orderMenu.add(menuItem);
         menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Event.CTRL_MASK));
@@ -104,11 +101,11 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
         orderMenu.add(menuItem);
         menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Event.CTRL_MASK));
         menuItem.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
-                }
-            });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         // ----- help menu ------ //
         menuItem = new JMenuItem("About");
@@ -117,11 +114,12 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
         menuItem.addActionListener(new aboutListener());
     }
 
-    private class aboutListener implements ActionListener{
+    private class aboutListener implements ActionListener {
         String message = "Pizza Ordering System GUI - Written in Java.\n" +
                 "Easily customize and order your favorite pizzas.\n" +
                 "Author: Reaz W. Rahman \n" +
                 "All Rights Reserved © 2024.";
+
         @Override
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(frame,
@@ -146,7 +144,7 @@ public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
         }
     }
 
-    private class saveListener implements ActionListener{
+    private class saveListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
