@@ -21,6 +21,8 @@ public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
 
         makeSelection(" Bread Sticks");
         makeSelection(" Buffalo Wings");
+        makeSelection(" French Fries");
+        makeSelection(" Onion Rings");
     }
 
     private void makeSelection(String label){
