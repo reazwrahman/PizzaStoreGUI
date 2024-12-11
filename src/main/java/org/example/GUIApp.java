@@ -40,7 +40,7 @@ public class GUIApp {
     }
 
     private void renderMenu(){
-        menuComponent = new GUIMenu(frame);
+        menuComponent = new GUIMenu(frame, componentMapper);
         menuComponent.render();
     }
 

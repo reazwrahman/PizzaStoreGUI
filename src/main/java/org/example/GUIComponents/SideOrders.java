@@ -2,11 +2,14 @@ package org.example.GUIComponents;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
     private static final int COLUMNS = 10;
     private static final int WIDTH = 30;
     private static final int HEIGHT = 26;
+
+    private ArrayList<JTextField> m_textFields = new ArrayList<>();
 
     @Override
     public void render(){
@@ -23,10 +26,18 @@ public class SideOrders extends AbstractGUIComponent implements GUIComponentIF{
         JPanel smallPanel = new JPanel();
         smallPanel.setLayout(new BoxLayout(smallPanel,BoxLayout.X_AXIS));
         JTextField textField = new JTextField("0",COLUMNS);
+        m_textFields.add(textField);
         textField.setMaximumSize(new Dimension(WIDTH,HEIGHT));
         smallPanel.add(textField);
         smallPanel.add(new JLabel(label));
         smallPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         m_panel.add(smallPanel);
+    }
+
+    @Override
+    public void reset(){
+        for (JTextField field: m_textFields){
+            field.setText("0");
+        }
     }
 }

@@ -6,11 +6,11 @@ import java.awt.*;
 public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF{
 
     // radio buttons and button group
+    private ButtonGroup crustButtonGroup;
     private JRadioButton regularCrustButton;
     private JRadioButton thinCrustButton;
     private JRadioButton handCrustButton;
     private JRadioButton deepCrustButton;
-    private ButtonGroup crustButtonGroup;
 
     @Override
     public void render(){
@@ -20,17 +20,26 @@ public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF
         m_panel.setPreferredSize(new Dimension(250,0));
 
         crustButtonGroup = new ButtonGroup();
+
         regularCrustButton = new JRadioButton("Regular Crust",true);
         crustButtonGroup.add(regularCrustButton);
         m_panel.add(regularCrustButton);
+
         thinCrustButton = new JRadioButton("Thin Crust",false);
         crustButtonGroup.add(thinCrustButton);
         m_panel.add(thinCrustButton);
+
         handCrustButton = new JRadioButton("Hand-Tossed Crust",false);
         crustButtonGroup.add(handCrustButton);
         m_panel.add(handCrustButton);
+
         deepCrustButton = new JRadioButton("Deep-Dish Crust",false);
         crustButtonGroup.add(deepCrustButton);
         m_panel.add(deepCrustButton);
+    }
+
+    @Override
+    public void reset() {
+        regularCrustButton.setSelected(true);
     }
 }

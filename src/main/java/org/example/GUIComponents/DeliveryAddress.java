@@ -2,6 +2,7 @@ package org.example.GUIComponents;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class DeliveryAddress extends AbstractGUIComponent implements GUIComponentIF{
 
@@ -53,5 +54,16 @@ public class DeliveryAddress extends AbstractGUIComponent implements GUIComponen
         smallPanel.add(addressDetailsText);
         smallPanel.add(zipcode);
         m_panel.add(smallPanel);
+    }
+
+    @Override
+    public void reset(){
+        // we know the second component in the panel contains the text fields
+        JPanel textFieldPanel = (JPanel) m_panel.getComponent(1);
+
+        for (java.awt.Component component: textFieldPanel.getComponents()) {
+            JTextField textField = (JTextField) component;
+            textField.setText("");
+        }
     }
 }

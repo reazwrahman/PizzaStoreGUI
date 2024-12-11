@@ -1,6 +1,7 @@
 package org.example.GUIComponents;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class ToppingChoices extends AbstractGUIComponent implements GUIComponentIF{
 
@@ -36,5 +37,14 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
         m_panel.add(oliveBox);
         anchovyBox = new JCheckBox("Anchovies", false);
         m_panel.add(anchovyBox);
+
+    }
+
+    @Override
+    public void reset(){
+        for (java.awt.Component component: m_panel.getComponents()) {
+            JCheckBox checkBox = (JCheckBox) component; // typecast to checkbox
+            checkBox.setSelected(false);
+        }
     }
 }
