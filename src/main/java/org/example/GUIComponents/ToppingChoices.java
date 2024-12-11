@@ -51,22 +51,12 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
     @Override
     public String getOrder(){
         String order = "Toppings: \n";
-        if (chickenBox.isSelected())
-            order += "     Chicken\n";
-        if (beefBox.isSelected())
-            order += "     Beef\n";
-        if (cheeseBox.isSelected())
-            order += "     Extra Cheese\n";
-        if (pepperBox.isSelected())
-            order += "     Peppers\n";
-        if (onionBox.isSelected())
-            order += "     Onions\n";
-        if (mushroomBox.isSelected())
-            order += "     Mushrooms\n";
-        if (oliveBox.isSelected())
-            order += "     Olives\n";
-        if (anchovyBox.isSelected())
-            order += "     Anchovies\n";
+        for (java.awt.Component component: m_panel.getComponents()) {
+            JCheckBox box = (JCheckBox) component;
+            if (box.isSelected()) {
+                order += "     " + box.getText() + "\n";
+            }
+        }
         return order;
     }
 }

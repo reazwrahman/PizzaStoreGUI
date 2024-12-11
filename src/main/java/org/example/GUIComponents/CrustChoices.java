@@ -47,15 +47,12 @@ public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF
     @Override
     public String getOrder(){
         String order = "Crust:\n";
-        if (regularCrustButton.isSelected())
-            order += "     Regular\n";
-        else if (thinCrustButton.isSelected())
-            order += "     Thin\n";
-        else if (deepCrustButton.isSelected())
-            order += "     Deep-Dish\n";
-        else if (handCrustButton.isSelected())
-            order += "     Hand-Tossed\n";
-
+        for (java.awt.Component component: m_panel.getComponents()) {
+            JRadioButton button = (JRadioButton) component;
+            if (button.isSelected()) {
+                order += "     " + button.getText() + "\n";
+            }
+        }
         return order;
     }
 }
