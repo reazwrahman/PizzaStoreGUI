@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.*;
 
-public class GUIMenu implements GUIComponentIF
+public class GUIMenu extends AbstractGUIComponent implements GUIComponentIF
 {
     private JFrame frame;
 
@@ -23,7 +23,6 @@ public class GUIMenu implements GUIComponentIF
         componentMapper = componentsMapped;
     }
 
-
     @Override
     public JPanel getPanel(){
         return null; // placeholder implementation, menu doesn't need panel
@@ -35,6 +34,17 @@ public class GUIMenu implements GUIComponentIF
             GUIComponentIF component = componentMapper.get(region);
             component.reset();
         }
+    }
+
+    @Override
+    public String getOrder(){
+        String order = "Pizza Order\n" +
+                "===========\n";
+
+        order += componentMapper.get(BorderLayout.WEST).getOrder(); // crust
+        order += componentMapper.get(BorderLayout.CENTER).getOrder(); // toppings
+        order += componentMapper.get(BorderLayout.EAST).getOrder(); // sides
+        return order;
     }
 
     @Override
@@ -62,6 +72,8 @@ public class GUIMenu implements GUIComponentIF
 
         menuItem = new JMenuItem("Save Order");
         orderMenu.add(menuItem);
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK));
+        menuItem.addActionListener(new saveListener());
 
 
         menuItem = new JMenuItem("Exit");
@@ -106,6 +118,17 @@ public class GUIMenu implements GUIComponentIF
             JOptionPane.showMessageDialog(frame,
                     message,
                     "",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private class saveListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(frame,
+                    getOrder(),
+                    "Order Saved",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }

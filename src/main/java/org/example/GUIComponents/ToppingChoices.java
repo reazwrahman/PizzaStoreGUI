@@ -47,4 +47,26 @@ public class ToppingChoices extends AbstractGUIComponent implements GUIComponent
             checkBox.setSelected(false);
         }
     }
+
+    @Override
+    public String getOrder(){
+        String order = "Toppings: \n";
+        if (chickenBox.isSelected())
+            order += "     Chicken\n";
+        if (beefBox.isSelected())
+            order += "     Beef\n";
+        if (cheeseBox.isSelected())
+            order += "     Extra Cheese\n";
+        if (pepperBox.isSelected())
+            order += "     Peppers\n";
+        if (onionBox.isSelected())
+            order += "     Onions\n";
+        if (mushroomBox.isSelected())
+            order += "     Mushrooms\n";
+        if (oliveBox.isSelected())
+            order += "     Olives\n";
+        if (anchovyBox.isSelected())
+            order += "     Anchovies\n";
+        return order;
+    }
 }

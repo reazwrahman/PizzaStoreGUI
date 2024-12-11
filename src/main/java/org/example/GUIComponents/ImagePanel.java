@@ -15,7 +15,4 @@ public class ImagePanel extends AbstractGUIComponent implements GUIComponentIF{
         m_panel.setPreferredSize(new Dimension(400,300));
         m_panel.add(imgLabel);
     }
-
-    @Override
-    public void reset(){}
 }

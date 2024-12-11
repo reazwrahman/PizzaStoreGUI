@@ -12,4 +12,17 @@ public abstract class AbstractGUIComponent implements GUIComponentIF {
         }
         return m_panel;
     }
+
+    @Override
+    public void reset(){}
+
+    @Override
+    public boolean validateInput(){
+        return true;
+    };
+
+    @Override
+    public String getOrder() {
+        return "";
+    };
 }

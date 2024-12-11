@@ -2,6 +2,7 @@ package org.example.GUIComponents;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.annotation.Documented;
 
 public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF{
 
@@ -41,5 +42,20 @@ public class CrustChoices extends AbstractGUIComponent implements GUIComponentIF
     @Override
     public void reset() {
         regularCrustButton.setSelected(true);
+    }
+
+    @Override
+    public String getOrder(){
+        String order = "Crust:\n";
+        if (regularCrustButton.isSelected())
+            order += "     Regular\n";
+        else if (thinCrustButton.isSelected())
+            order += "     Thin\n";
+        else if (deepCrustButton.isSelected())
+            order += "     Deep-Dish\n";
+        else if (handCrustButton.isSelected())
+            order += "     Hand-Tossed\n";
+
+        return order;
     }
 }
