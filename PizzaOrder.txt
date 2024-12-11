@@ -1,0 +1,19 @@
+Pizza Order
+===========
+Crust:
+     Deep-Dish
+Toppings: 
+     Chicken
+     Extra Cheese
+     Mushrooms
+     Anchovies
+Sides: 
+     1 French Fries
+     6 Buffalo Wings
+     2 Onion Rings
+Deliver To:
+     Sherlock Holmes
+     221B Baker Street
+     London, England: NW1 6XE
+
+***END OF ORDER ***
